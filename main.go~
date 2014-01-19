@@ -10,13 +10,13 @@ package main
 
 import (
 	"github.com/astaxie/beego"
-	m "github.com/xulei8/daqid/models"
+	 
 	_ "github.com/xulei8/daqid/routers"
 	"os"
 )
 
 func main() {
-	initArgs()
+	//initArgs()
 	beego.Run()
 }
 
@@ -24,7 +24,7 @@ func initArgs() {
 	args := os.Args
 	for _, v := range args {
 		if v == "--newdb" {
-			m.Syncdb()
+			//m.Syncdb()
 
 			os.Exit(0)
 		}
