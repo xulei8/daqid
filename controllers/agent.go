@@ -4,21 +4,21 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type MainController struct {
+type Agent struct {
 	beego.Controller
 }
 
-func (this *MainController) Get() {
+func (this *Agent) Get() {
 	this.Data["Website"] = "beego.me"
 	this.Data["Email"] = "astaxie@gmail.com"
 	this.TplNames = "index.tpl"
 }
 
-type HelpController struct {
+type AgentCall struct {
 	beego.Controller
 }
 
-func (this *HelpController) Get() {
+func (this *AgentCall) Get() {
 	this.Data["Website"] = "beego.me"
 	this.Data["Email"] = "astaxie@gmail.com"
 	this.TplNames = "index.tpl"
