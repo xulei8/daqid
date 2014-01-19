@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	// "fmt"
+	_ "fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	m "github.com/xulei8/daqid/models"
@@ -55,9 +55,9 @@ func (this *CrmAdmin) Get() {
 
 	o := orm.NewOrm()
 
-	qs := o.QueryTable("dq_contact").Limit(10, 20).OrderBy("-id")
+	qs := o.QueryTable("dq_contact").OrderBy("-id")
 	//fmt.Println("%q",qs)
-	this.SetPaginator(10, 33)
+
 	if err := this.SetObjects(qs, &articles); err != nil {
 		this.Data["Error"] = err
 		beego.Error(err)
@@ -67,14 +67,15 @@ func (this *CrmAdmin) Get() {
 }
 
 func (this *CrmAdmin) SetObjects(qs orm.QuerySeter, objects interface{}) error {
-	_, err := qs.Count()
+	cnt, err := qs.Count()
 	//fmt.Println("Count %d",cnt)
 	if err != nil {
 		return err
 	}
 	// create paginator
+	pp := this.SetPaginator(10, cnt)
 
-	if cnt, err := qs.RelatedSel().All(objects); err != nil {
+	if cnt, err := qs.Limit(pp.PerPageNums, pp.Offset()).All(objects); err != nil {
 		return err
 	} else {
 		this.Data["Objects"] = objects
@@ -103,10 +104,17 @@ func (this *CrmImport) Post() {
 		a := strings.Trim(line[i], "\n")
 		b := strings.Trim(a, " ")
 		if len(b) > 3 {
+			b = b + ",,,,,"
+			arr := strings.Split(b, ",")
 			u := new(m.DqContact)
-			u.Mname = b
-			u.Uname = b
-			u.Tel = b
+			u.Mname = "10000"
+			u.Uname = arr[1]
+			u.Tel = arr[0]
+
+			u.Tel2 = arr[2]
+			if u.Uname == "" {
+				u.Uname = "No Name"
+			}
 			//fmt.Println("line " + ":" + b)
 			//m.AddDqContact(u)
 			//o = orm.NewOrm()

@@ -15,7 +15,7 @@
 package utils
 
 import (
-	"fmt"
+	_ "fmt"
 	"math"
 	"net/http"
 	"net/url"
@@ -71,7 +71,7 @@ func (p *Paginator) Page() int {
 }
 
 func (p *Paginator) Pages() []int {
-	fmt.Printf("  pages --  ")
+	//fmt.Printf("  pages --  ")
 	if p.pageRange == nil && p.nums > 0 {
 		var pages []int
 		pageNums := p.PageNums()
@@ -128,7 +128,7 @@ func (p *Paginator) PageLinkNext() (link string) {
 }
 
 func (p *Paginator) PageLinkFirst() (link string) {
-	fmt.Print("pagelinkfisrt")
+	//fmt.Print("pagelinkfisrt")
 	return p.PageLink(1)
 }
 
@@ -162,7 +162,7 @@ func NewPaginator(req *http.Request, per int, nums interface{}) *Paginator {
 	if per <= 0 {
 		per = 10
 	}
-	fmt.Printf(" per : %d , all : %d ", per, nums)
+	//fmt.Printf(" per : %d , all : %d ", per, nums)
 
 	p.PerPageNums = per
 	p.SetNums(nums)

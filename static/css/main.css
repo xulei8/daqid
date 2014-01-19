@@ -1,10 +1,10 @@
- body { 	margin: 0px; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 	font-size: 14px; line-height: 20px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); }
+ body { 	margin: 0px; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 	font-size: 12px; line-height: 20px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); }
 .topnav{clear:both;  height:28px ; margin:5px 5px;}
 .topnav ul{}
 .topnav ul li{width:100px; float:left; list-style-type:none ;}
 .topnav ul li a{ line-height:28px ;}
 .pagination{}
-.pagination li{ width:100px; float:left ; list-style:none ; margin:2px 5px  ;}
+.pagination li{ width:45px; float:left ; list-style:none ; margin:2px 5px  ;}
 .pagination li a{ width:100%; display:block ;  border:1px solid #cccccc ; text-align:center ;}
 .disabled{color:#cccccc ;}
 .hero-unit {

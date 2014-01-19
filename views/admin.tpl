@@ -3,7 +3,7 @@
 {{template "top.tpl"}}
  
   		<header class="hero-unit" style="background-color:#A9F16C">
-			  <table class="table table-hover table-condensed color-link">
+			  <table class="table table-hover table-condensed color-link" width=800>
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -19,12 +19,16 @@
                     
                                 <td>{{$article.Uname }}</td>
                                <td>{{$article.Tel }}</td>
+							
+							  <td>{{$article.Tel2}}</td>
+							 <td>{{$article.LastCalltime }}</td>
+							
                             </tr>
                             {{end}}
                         </tbody>
                     </table>
 
-{{.Paginator.PageLinkFirst}}
+ 
 <ul class="pagination pagination-sm">
 
     {{if .Paginator.HasPrev}}

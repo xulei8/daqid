@@ -24,7 +24,7 @@ func main() {
 func initArgs() {
 	args := os.Args
 	for _, v := range args {
-		if v == "--newdb" {
+		if v == "--newdb" || v == "new" || v == "newdb" {
 			m.Syncdb()
 			os.Exit(0)
 		}
