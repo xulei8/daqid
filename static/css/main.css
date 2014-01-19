@@ -3,7 +3,10 @@
 .topnav ul{}
 .topnav ul li{width:100px; float:left; list-style-type:none ;}
 .topnav ul li a{ line-height:28px ;}
-			
+.pagination{}
+.pagination li{ width:100px; float:left ; list-style:none ; margin:2px 5px  ;}
+.pagination li a{ width:100%; display:block ;  border:1px solid #cccccc ; text-align:center ;}
+.disabled{color:#cccccc ;}
 .hero-unit {
 				padding: 60px;
 				margin-bottom: 30px;

@@ -8,7 +8,7 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
- 
+
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
@@ -16,6 +16,9 @@ import (
 
 var o orm.Ormer
 
+func init() {
+	Connect()
+}
 func Syncdb() {
 	createdb()
 	Connect()
@@ -31,13 +34,11 @@ func Syncdb() {
 	if err != nil {
 		fmt.Println(err)
 	}
- 
+
 	//inserContact()
 	fmt.Println("database init is complete.Please restart the application")
 
 }
-
-
 
 //数据库连接
 func Connect() {
@@ -70,7 +71,6 @@ func Connect() {
 	}
 	orm.RegisterDataBase("default", db_type, dns)
 }
-
 
 func createdb() {
 
@@ -119,4 +119,3 @@ func createdb() {
 	defer db.Close()
 
 }
-

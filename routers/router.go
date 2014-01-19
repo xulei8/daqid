@@ -13,5 +13,6 @@ func init() {
 	beego.Router("/gocrm_agent", &controllers.Agent{})
 	beego.Router("/gocrm_agentcall", &controllers.AgentCall{})
 	beego.Router("/gocrm_report", &controllers.MainController{})
+	beego.Router("/gocrm_crmimport", &controllers.CrmImport{})
 
 }

@@ -20,12 +20,12 @@ func main() {
 	beego.Run()
 }
 
+//建立数据库
 func initArgs() {
 	args := os.Args
 	for _, v := range args {
 		if v == "--newdb" {
 			m.Syncdb()
-
 			os.Exit(0)
 		}
 	}
