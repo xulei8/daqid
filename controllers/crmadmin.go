@@ -112,6 +112,11 @@ func (this *CrmImport) Post() {
 			u.Tel = arr[0]
 
 			u.Tel2 = arr[2]
+
+			if len(u.Tel) < 6 {
+				continue
+			} //电话号码长度
+
 			if u.Uname == "" {
 				u.Uname = "No Name"
 			}
