@@ -15,9 +15,9 @@
                         <tbody>
                             {{range $article := .Objects}}
                             <tr>
-                                <td><a href="{{$.AppUrl}}admin/article/{{$article.Id}}">{{$article.Id}}</a></td>
+                                <td>{{$article.Id}}</a></td>
                     
-                                <td>{{$article.Uname }}</td>
+                                <td><a  target=_blank href="gocrm_agentcall?cid={{$article.Id}}">{{$article.Uname }}</a></td>
                                <td>{{$article.Tel }}</td>
 							
 							  <td>{{$article.Tel2}}</td>

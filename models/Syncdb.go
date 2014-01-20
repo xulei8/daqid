@@ -15,13 +15,20 @@ import (
 )
 
 var o orm.Ormer
+var DbConnect bool
 
 func init() {
-	Connect()
+	DbConnect = false
+	if !DbConnect {
+		Connect()
+	}
 }
 func Syncdb() {
+
 	createdb()
-	Connect()
+	if !DbConnect {
+		Connect()
+	}
 	o = orm.NewOrm()
 	// 数据库别名
 	name := "default"
@@ -70,6 +77,7 @@ func Connect() {
 		beego.Critical("Database driver is not allowed:", db_type)
 	}
 	orm.RegisterDataBase("default", db_type, dns)
+	DbConnect = true
 }
 
 func createdb() {
