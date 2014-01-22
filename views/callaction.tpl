@@ -12,6 +12,7 @@
 	width:80px;
 	}
 </style> 
+<script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
 <script >
 function setnote(aa)
 {
@@ -79,7 +80,7 @@ $("#note").val(a);
  	<tr>
  		<td > 选择</td><td colspan="3"   > 
  		<select  name="selectmod" id="selectmod"  onchange="setnote();">
-  
+  <option value="ddddddddsxxxxxxxxxxxxxxdddd">sssssssssasdasdssssssss</option>
  		<option value="dddddddddddd">sssssssssssssss</option>
   	</select>  </td>
   

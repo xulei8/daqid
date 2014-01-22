@@ -6,6 +6,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	m "github.com/xulei8/daqid/models"
 	"github.com/xulei8/daqid/utils"
+	"strconv"
 	"strings"
 )
 
@@ -49,6 +50,38 @@ func (this *CrmAdmin) Object() interface{} {
 }
 
 func (this *CrmAdmin) Get() {
+	this.Data["Website"] = "beego.me"
+	this.Data["Email"] = "astaxie@gmail.com"
+	var articles []m.DqContact
+
+	o := orm.NewOrm()
+
+	qs := o.QueryTable("dq_contact").OrderBy("-id")
+	//fmt.Println("%q",qs)
+
+	if err := this.SetObjects(qs, &articles); err != nil {
+		this.Data["Error"] = err
+		beego.Error(err)
+	}
+
+	this.TplNames = "admin.tpl"
+}
+
+func (this *CrmAdmin) Post() {
+	fa := this.GetStrings("fa")
+	for _, v := range fa {
+
+		id, _ := strconv.Atoi(v)
+
+		o := orm.NewOrm()
+		oneC := m.DqContact{Id: int64(id)}
+		//	o.Read(&oneC)
+		oneC.Called = 0
+		o.Update(&oneC, "Called")
+
+		//fmt.Printf("%d\n", id)
+	}
+
 	this.Data["Website"] = "beego.me"
 	this.Data["Email"] = "astaxie@gmail.com"
 	var articles []m.DqContact

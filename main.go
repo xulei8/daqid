@@ -18,6 +18,7 @@ import (
 func main() {
 	initArgs()
 	beego.Run()
+
 }
 
 //建立数据库
@@ -27,6 +28,7 @@ func initArgs() {
 		if v == "--newdb" || v == "new" || v == "newdb" {
 			m.Syncdb()
 			os.Exit(0)
+
 		}
 	}
 }
