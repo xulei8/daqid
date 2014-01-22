@@ -17,7 +17,8 @@ Beego学习项目。
 
 项目运行：
 =======
-编译以后，请配置conf/app.conf。默认使用MySQL数据库。也可以使用Sqlite或PostgreSQL数据库。
+	编译以后，请配置conf/app.conf。默认使用MySQL数据库。也可以使用Sqlite或PostgreSQL数据库。
+	项目第一次运行时会自动建立数据库表。
 
 xulei8@qq.com
 
