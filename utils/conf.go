@@ -29,11 +29,9 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
 	"github.com/astaxie/beego/orm"
- 
+
 	"github.com/beego/compress"
 	"github.com/beego/i18n"
-
-	"github.com/beego/wetalk/mailer"
 )
 
 const (
@@ -76,8 +74,8 @@ const (
 )
 
 var (
-	Cfg     *goconfig.ConfigFile
-	Cache   cache.Cache
+	Cfg   *goconfig.ConfigFile
+	Cache cache.Cache
 	//Captcha *captcha.Captcha
 )
 
@@ -128,7 +126,7 @@ func LoadConfig() *goconfig.ConfigFile {
 
 	IsProMode = beego.RunMode == "pro"
 	if IsProMode {
-		beego.SetLevel(beego.LevelInfo)
+		//	beego.SetLevel(beego.LevelInfo)
 	}
 
 	// cache system
@@ -226,9 +224,6 @@ func reloadConfig() {
 	MailFrom = Cfg.MustValue("mailer", "mail_from", "example@example.com")
 
 	// set mailer connect args
-	mailer.MailHost = Cfg.MustValue("mailer", "mail_host", "127.0.0.1:25")
-	mailer.AuthUser = Cfg.MustValue("mailer", "mail_user", "example@example.com")
-	mailer.AuthPass = Cfg.MustValue("mailer", "mail_pass", "******")
 
 	orm.Debug = Cfg.MustBool("orm", "debug_log")
 }
